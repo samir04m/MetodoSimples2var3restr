@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Metodo SIMPLEX</title>
+
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/myStyles.css">
+    <link rel="stylesheet" href="css/material-icons.css">
+    <script type="text/javascript" src="js/fontawesome-all.js"></script>
+
+</head>
+<body>
+
+    <header></header>
+    <main class="light-blue accent-4">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 offset-m3 m6">
+                    <div class="card-panel">
+                        <center><big><b>Método Simplex</b></big></center>
+                        <hr>
+                        <div class="row m-b-0">
+                            <div class="col s6 m4">
+                                <br><b>Función Z</b>
+                            </div>
+                            <div class="input-field col s2">
+                                 <input id="zx1" type="number">
+                                 <label for="zx1">X1</label>
+                            </div>
+                            <div class="input-field col s2">
+                                <input id="zx2" type="number">
+                                <label for="zx2">X2</label>
+                            </div>
+                            <div class="col s4">
+                                <br>
+                                <select class="browser-default">
+                                    <option value="1">Maximizar</option>
+                                    <option value="2">Minimizar</option>>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="row m-b-0">
+                            <div class="col s6 m4">
+                                <br><b>Restricción 1</b>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                 <input id="f1x1" type="number">
+                                 <label for="f1x1">X1</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="f1x2" type="number">
+                                <label for="f1x2">X2</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="s1" type="number">
+                                <label for="s1">S1</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="F1R" type="number">
+                                <label for="F1R">R</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/myScript.js"></script>
+</body>
+</html>
