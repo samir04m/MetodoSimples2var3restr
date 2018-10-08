@@ -19,6 +19,21 @@ $(document).ready(function(){
     $("#s3").val("1");
     $("#f3r").val("600");
 
+    // $("#zx1").val("5");
+    // $("#zx2").val("4");
+    // $("#f1x1").val("2");
+    // $("#f1x2").val("2");
+    // $("#s1").val("1");
+    // $("#f1r").val("14");
+    // $("#f2x1").val("6");
+    // $("#f2x2").val("3");
+    // $("#s2").val("1");
+    // $("#f2r").val("36");
+    // $("#f3x1").val("5");
+    // $("#f3x2").val("10");
+    // $("#s3").val("1");
+    // $("#f3r").val("60");
+
 });
 var tabla = [4][7];
 var rs = [4], col_r = 6;
@@ -66,15 +81,54 @@ function calcular(){
     }
     if (select == 2){
         console.log("Vamos a minimizar");
+
+        for(;;){
+
+            if (buscarColumnaPivoteMinimizar() != -1){
+                columna_pivote = buscarColumnaPivoteMinimizar();
+                console.log("la columna pivote es ", columna_pivote);
+                minimizar();
+
+            }else{
+                console.log("fin del proceso");
+                mostarTabla();
+                $("#z").html(tabla[0][col_r]);
+                var x1, x2;
+                for (f=0; f<4; f++){
+                    if (tabla[f][1] == 1){
+                        $("#x1").html(tabla[f][col_r]);
+                    }
+                    if (tabla[f][2] == 1){
+                        $("#x2").html(tabla[f][col_r]);
+                    }
+                }
+                break;
+            }
+        }
+
     }
 }
 
 function buscarColumnaPivote(){
     var menor = 99999999, pos=-1;
-    for (c=0; c<7; c++){
+    for (c=1; c<6; c++){
         if (tabla[0][c] < 0){
             if (tabla[0][c] < menor){
                 menor = tabla[0][c];
+                pos = c;
+            }
+        }
+    }
+    return pos;
+}
+
+function buscarColumnaPivoteMinimizar(){
+    var mayor = 0, pos=-1;
+    for (c=1; c<6; c++){
+        if (tabla[0][c] > 0){
+            console.log("mayor que 0 ", tabla[0][c]);
+            if (tabla[0][c] > mayor){
+                mayor = tabla[0][c];
                 pos = c;
             }
         }
@@ -124,6 +178,51 @@ function maximizar(){
     mostarTabla();
     // evaluar();
 }
+
+
+function minimizar(){
+    for (i=1; i<4; i++){
+        if (tabla[i][columna_pivote] > 0){
+            rs[i] = tabla[i][col_r]/tabla[i][columna_pivote];
+        }else{
+            rs[i] = 0;
+        }
+        console.log("rs ", rs[i]);
+    }
+    var menor = 99999999, pos;
+    for (i=1; i<4; i++){
+        if (rs[i] < menor && rs[i] != 0){
+            menor = rs[i];
+            pos = i;
+        }
+    }
+    console.log("el menor es ", rs[pos]," en la fila", pos);
+    fila_pivote = pos;
+    elemento_pivote = tabla[fila_pivote][columna_pivote];
+    console.log("elemento_pivote ", elemento_pivote);
+
+    if (elemento_pivote != 1){
+        mult = 1/elemento_pivote;
+        console.log("multiplicador en fila pivote ", mult);
+        for (c=1; c<7; c++){
+            tabla[fila_pivote][c] *= mult;
+        }
+        mostarTabla();
+    }
+
+    for (f=0; f<4; f++){
+        if (tabla[f][columna_pivote] != 0 && f != fila_pivote){
+            var valor = tabla[f][columna_pivote] *(-1);
+            for (c=0; c<7; c++){
+                result = valor *tabla[fila_pivote][c] + tabla[f][c];
+                tabla[f][c] = result;
+            }
+        }
+    }
+    mostarTabla();
+    // evaluar();
+}
+
 
 function definirTabla() {
     var zx1 = parseInt($("#zx1").val());
