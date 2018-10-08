@@ -36,7 +36,7 @@
                             </div>
                             <div class="col s4">
                                 <br>
-                                <select class="browser-default">
+                                <select class="browser-default" id="select">
                                     <option value="1">Maximizar</option>
                                     <option value="2">Minimizar</option>>
                                   </select>
@@ -59,10 +59,58 @@
                                 <label for="s1">S1</label>
                             </div>
                             <div class="input-field col s6 m2">
-                                <input id="F1R" type="number">
-                                <label for="F1R">R</label>
+                                <input id="f1r" type="number">
+                                <label for="f1r">R</label>
                             </div>
                         </div>
+
+                        <div class="row m-b-0">
+                            <div class="col s6 m4">
+                                <br><b>Restricción 2</b>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                 <input id="f2x1" type="number">
+                                 <label for="f2x1">X1</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="f2x2" type="number">
+                                <label for="f2x2">X2</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="s2" type="number">
+                                <label for="s2">S2</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="f2r" type="number">
+                                <label for="f2r">R</label>
+                            </div>
+                        </div>
+
+                        <div class="row m-b-0">
+                            <div class="col s6 m4">
+                                <br><b>Restricción 3</b>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                 <input id="f3x1" type="number">
+                                 <label for="f3x1">X1</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="f3x2" type="number">
+                                <label for="f3x2">X2</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="s3" type="number">
+                                <label for="s3">S3</label>
+                            </div>
+                            <div class="input-field col s6 m2">
+                                <input id="f3r" type="number">
+                                <label for="f3r">R</label>
+                            </div>
+                        </div>
+                        <center>
+                            <button class="btn waves-effect waves-light blue" id="btn-run">Calcular</button>
+                        </center>
+
                     </div>
 
                 </div>
