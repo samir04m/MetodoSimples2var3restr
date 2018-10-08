@@ -21,64 +21,98 @@ $(document).ready(function(){
 
 });
 var tabla = [4][7];
+var rs = [4], col_r = 6;
+var columna_pivote, fila_pivote, elemento_pivote;
 
 function calcular(){
-    var rs = [4], col_r = 6;
     var select = $('select#select').val();
     definirTabla();
     mostarTabla();
-    var columna_pivote, fila_pivote, elemento_pivote;
 
     if (select == 1){
         console.log("Vamos a maximizar");
-        var zx1 = tabla[0][1];
-        var zx2 = tabla[0][2];
-        if (zx1 < 0 || zx2 < 0){
-            if (zx1 > zx2) columna_pivote = 2;
-            else columna_pivote = 1;
-            console.log("columna pivote ", columna_pivote);
+        // var zx1 = tabla[0][1];
+        // var zx2 = tabla[0][2];
+        // if (zx1 < 0 || zx2 < 0){
+            // if (zx1 > zx2) columna_pivote = 2;
+            // else columna_pivote = 1;
 
-            for (i=1; i<4; i++){
-                if (tabla[i][columna_pivote] != 0){
-                    rs[i] = tabla[i][col_r]/tabla[i][columna_pivote];
-                }else{
-                    rs[i] = 0;
-                }
-                console.log("rs ", rs[i]);
-            }
-            var menor = 99999999, pos;
-            for (i=1; i<4; i++){
-                if (rs[i] < menor){
-                    menor = rs[i];
-                    pos = i;
-                }
-            }
-            console.log("el menor es ", rs[pos]," en la fila", pos);
-            fila_pivote = pos;
-            elemento_pivote = tabla[fila_pivote][columna_pivote];
-            console.log("elemento_pivote ", elemento_pivote);
+        for(;;){
 
-            if (elemento_pivote != 1){
-                mult = 1/elemento_pivote;
-                console.log("multiplicador en fila pivote ", mult);
-                for (c=1; c<7; c++){
-                    tabla[fila_pivote][c] *= mult;
-                }
+            if (buscarColumnaPivote() != -1){
+                columna_pivote = buscarColumnaPivote();
+                console.log("la columna pivote es ", columna_pivote);
+                maximizar();
+
+            }else{
+                console.log("fin del proceso");
                 mostarTabla();
+                break;
             }
-
-            for (f=0; f<4; f++){
-                if (tabla[f][columna_pivote] != 0 && f != fila_pivote){
-                    var valor = tabla[f][columna_pivote] *(-1); 
-                }
-            }
-
         }
+
+        // }
 
     }
     if (select == 2){
         console.log("Vamos a minimizar");
     }
+}
+
+function buscarColumnaPivote(){
+    var menor = 99999999, pos=-1;
+    for (c=0; c<7; c++){
+        if (tabla[0][c] < 0){
+            if (tabla[0][c] < menor){
+                menor = tabla[0][c];
+                pos = c;
+            }
+        }
+    }
+    return pos;
+}
+
+function maximizar(){
+    for (i=1; i<4; i++){
+        if (tabla[i][columna_pivote] > 0){
+            rs[i] = tabla[i][col_r]/tabla[i][columna_pivote];
+        }else{
+            rs[i] = 0;
+        }
+        console.log("rs ", rs[i]);
+    }
+    var menor = 99999999, pos;
+    for (i=1; i<4; i++){
+        if (rs[i] < menor && rs[i] != 0){
+            menor = rs[i];
+            pos = i;
+        }
+    }
+    console.log("el menor es ", rs[pos]," en la fila", pos);
+    fila_pivote = pos;
+    elemento_pivote = tabla[fila_pivote][columna_pivote];
+    console.log("elemento_pivote ", elemento_pivote);
+
+    if (elemento_pivote != 1){
+        mult = 1/elemento_pivote;
+        console.log("multiplicador en fila pivote ", mult);
+        for (c=1; c<7; c++){
+            tabla[fila_pivote][c] *= mult;
+        }
+        mostarTabla();
+    }
+
+    for (f=0; f<4; f++){
+        if (tabla[f][columna_pivote] != 0 && f != fila_pivote){
+            var valor = tabla[f][columna_pivote] *(-1);
+            for (c=0; c<7; c++){
+                result = valor *tabla[fila_pivote][c] + tabla[f][c];
+                tabla[f][c] = result;
+            }
+        }
+    }
+    mostarTabla();
+    // evaluar();
 }
 
 function definirTabla() {
