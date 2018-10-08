@@ -57,6 +57,22 @@ function calcular(){
             fila_pivote = pos;
             elemento_pivote = tabla[fila_pivote][columna_pivote];
             console.log("elemento_pivote ", elemento_pivote);
+
+            if (elemento_pivote != 1){
+                mult = 1/elemento_pivote;
+                console.log("multiplicador en fila pivote ", mult);
+                for (c=1; c<7; c++){
+                    tabla[fila_pivote][c] *= mult;
+                }
+                mostarTabla();
+            }
+
+            for (f=0; f<4; f++){
+                if (tabla[f][columna_pivote] != 0 && f != fila_pivote){
+                    var valor = tabla[f][columna_pivote] *(-1); 
+                }
+            }
+
         }
 
     }
