@@ -84,14 +84,14 @@ function calcular(){
             }else{
                 console.log("fin del proceso");
                 // mostarTabla();
-                $("#z").html(tabla[0][col_r].toFixed(4));
+                $("#z").html(tabla[0][col_r]);
                 var x1, x2;
                 for (f=0; f<4; f++){
                     if (tabla[f][1] == 1){
-                        $("#x1").html(tabla[f][col_r].toFixed(4));
+                        $("#x1").html(tabla[f][col_r]);
                     }
                     if (tabla[f][2] == 1){
-                        $("#x2").html(tabla[f][col_r].toFixed(4));
+                        $("#x2").html(tabla[f][col_r]);
                     }
                 }
                 break;
@@ -113,15 +113,15 @@ function calcular(){
 
             }else{
                 console.log("fin del proceso");
-                mostarTabla();
-                $("#z").html(tabla[0][col_r].toFixed(4));
+                // mostarTabla();
+                $("#z").html(tabla[0][col_r]);
                 var x1, x2;
                 for (f=0; f<4; f++){
                     if (tabla[f][1] == 1){
-                        $("#x1").html(tabla[f][col_r].toFixed(4));
+                        $("#x1").html(tabla[f][col_r]);
                     }
                     if (tabla[f][2] == 1){
-                        $("#x2").html(tabla[f][col_r].toFixed(4));
+                        $("#x2").html(tabla[f][col_r]);
                     }
                 }
                 break;
