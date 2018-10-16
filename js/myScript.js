@@ -4,20 +4,36 @@ $(document).ready(function(){
 
     $( "button#btn-run" ).on( "click",  calcular);
 
-    $("#zx1").val("-8");
-    $("#zx2").val("-10");
-    $("#f1x1").val("2");
-    $("#f1x2").val("3");
-    $("#s1").val("1");
-    $("#f1r").val("600");
-    $("#f2x1").val("2");
-    $("#f2x2").val("1");
-    $("#s2").val("1");
-    $("#f2r").val("500");
-    $("#f3x1").val("0");
-    $("#f3x2").val("4");
-    $("#s3").val("1");
-    $("#f3r").val("600");
+    // $("#zx1").val("-8");
+    // $("#zx2").val("-10");
+    // $("#f1x1").val("2");
+    // $("#f1x2").val("3");
+    // $("#s1").val("1");
+    // $("#f1r").val("600");
+    // $("#f2x1").val("2");
+    // $("#f2x2").val("1");
+    // $("#s2").val("1");
+    // $("#f2r").val("500");
+    // $("#f3x1").val("0");
+    // $("#f3x2").val("4");
+    // $("#s3").val("1");
+    // $("#f3r").val("600");
+
+
+    // $("#zx1").val("-5");
+    // $("#zx2").val("-8");
+    // $("#f1x1").val("6");
+    // $("#f1x2").val("5");
+    // $("#s1").val("1");
+    // $("#f1r").val("30");
+    // $("#f2x1").val("0");
+    // $("#f2x2").val("-1");
+    // $("#s2").val("1");
+    // $("#f2r").val("-1");
+    // $("#f3x1").val("-1");
+    // $("#f3x2").val("1");
+    // $("#s3").val("1");
+    // $("#f3r").val("3");
 
     // $("#zx1").val("5");
     // $("#zx2").val("4");
@@ -68,14 +84,14 @@ function calcular(){
             }else{
                 console.log("fin del proceso");
                 // mostarTabla();
-                $("#z").html(tabla[0][col_r]);
+                $("#z").html(tabla[0][col_r].toFixed(4));
                 var x1, x2;
                 for (f=0; f<4; f++){
                     if (tabla[f][1] == 1){
-                        $("#x1").html(tabla[f][col_r]);
+                        $("#x1").html(tabla[f][col_r].toFixed(4));
                     }
                     if (tabla[f][2] == 1){
-                        $("#x2").html(tabla[f][col_r]);
+                        $("#x2").html(tabla[f][col_r].toFixed(4));
                     }
                 }
                 break;
@@ -98,14 +114,14 @@ function calcular(){
             }else{
                 console.log("fin del proceso");
                 mostarTabla();
-                $("#z").html(tabla[0][col_r]);
+                $("#z").html(tabla[0][col_r].toFixed(4));
                 var x1, x2;
                 for (f=0; f<4; f++){
                     if (tabla[f][1] == 1){
-                        $("#x1").html(tabla[f][col_r]);
+                        $("#x1").html(tabla[f][col_r].toFixed(4));
                     }
                     if (tabla[f][2] == 1){
-                        $("#x2").html(tabla[f][col_r]);
+                        $("#x2").html(tabla[f][col_r].toFixed(4));
                     }
                 }
                 break;
@@ -281,7 +297,7 @@ function crearTablas(){
     var $tbody =  $("tbody").last();
 
     for (var i=0; i<4; i++) {
-        myItems.push('<tr><td>'+tabla[i][0]+'</td> <td>'+tabla[i][1]+'</td> <td>'+tabla[i][2]+'</td> <td>'+tabla[i][3]+'</td> <td>'+tabla[i][4]+'</td> <td>'+tabla[i][5]+'</td> <td>'+tabla[i][6]+'</td> </tr>');
+        myItems.push('<tr><td>'+tabla[i][0].toFixed(2)+'</td> <td>'+tabla[i][1].toFixed(2)+'</td> <td>'+tabla[i][2].toFixed(2)+'</td> <td>'+tabla[i][3].toFixed(2)+'</td> <td>'+tabla[i][4].toFixed(2)+'</td> <td>'+tabla[i][5].toFixed(2)+'</td> <td>'+tabla[i][6].toFixed(2)+'</td> </tr>');
     }
 
     $tbody.append(myItems.join(''));
