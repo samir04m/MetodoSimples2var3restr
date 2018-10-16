@@ -40,6 +40,10 @@ var rs = [4], col_r = 6;
 var columna_pivote, fila_pivote, elemento_pivote;
 
 function calcular(){
+
+    $( "#card-result" ).fadeIn();
+    $( "#card-tables" ).fadeIn();
+
     var select = $('select#select').val();
     definirTabla();
     mostarTabla();
@@ -61,7 +65,7 @@ function calcular(){
 
             }else{
                 console.log("fin del proceso");
-                mostarTabla();
+                // mostarTabla();
                 $("#z").html(tabla[0][col_r]);
                 var x1, x2;
                 for (f=0; f<4; f++){
@@ -254,4 +258,30 @@ function mostarTabla(){
     for (i=0; i<4; i++){
             console.log(tabla[i][0],tabla[i][1], tabla[i][2], tabla[i][3], tabla[i][4], tabla[i][5],tabla[i][6]);
     }
+
+    crearTablas();
+    // crearTablas();
+}
+
+function crearTablas(){
+    var table = $(`<table class="centered"><thead><tr>
+                        <th>Z</th> <th>X1</th> <th>X2</th> <th>S1</th> <th>S2</th> <th>S3</th> <th>R</th>
+                        </tr></thead><tbody></tbody></table>`);
+    var fila  = $(`<tr><td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr`);
+    // $("")
+    $("#card-tables").append(table);
+    // $("tbody").append(fila);
+
+    var myItems = [];
+    var $tbody =  $("tbody").last();
+
+    for (var i=0; i<4; i++) {
+        myItems.push('<tr><td>'+tabla[i][0]+'</td> <td>'+tabla[i][1]+'</td> <td>'+tabla[i][2]+'</td> <td>'+tabla[i][3]+'</td> <td>'+tabla[i][4]+'</td> <td>'+tabla[i][5]+'</td> <td>'+tabla[i][6]+'</td> </tr>');
+    }
+
+    $tbody.append(myItems.join(''));
+
 }

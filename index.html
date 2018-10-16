@@ -18,23 +18,23 @@
     <main class="light-blue accent-4">
         <div class="container">
             <div class="row">
-                <div class="col s12 offset-m2 m8">
+                <div class="col s12 m7">
                     <div class="card-panel">
                         <center><big><b>Método Simplex</b></big></center>
                         <hr>
                         <div class="row m-b-0">
-                            <div class="col s6 m4">
+                            <div class="col s12 m4">
                                 <br><b>Función Z</b>
                             </div>
-                            <div class="input-field col s2">
+                            <div class="input-field col s6 m2">
                                  <input id="zx1" type="number">
                                  <label for="zx1">X1</label>
                             </div>
-                            <div class="input-field col s2">
+                            <div class="input-field col s6 m2">
                                 <input id="zx2" type="number">
                                 <label for="zx2">X2</label>
                             </div>
-                            <div class="col s4">
+                            <div class="col s12 m4">
                                 <br>
                                 <select class="browser-default" id="select">
                                     <option value="1">Maximizar</option>
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="row m-b-0">
-                            <div class="col s6 m4">
+                            <div class="col s12 m4">
                                 <br><b>Restricción 1</b>
                             </div>
                             <div class="input-field col s6 m2">
@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="row m-b-0">
-                            <div class="col s6 m4">
+                            <div class="col s12 m4">
                                 <br><b>Restricción 2</b>
                             </div>
                             <div class="input-field col s6 m2">
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="row m-b-0">
-                            <div class="col s6 m4">
+                            <div class="col s12 m4">
                                 <br><b>Restricción 3</b>
                             </div>
                             <div class="input-field col s6 m2">
@@ -112,12 +112,19 @@
                         </center>
 
                     </div>
-                    <div class="card-panel">
-                        <h4>Z= <span id="z"></span></h4>
-                        <h4>X1= <span id="x1"></span></h4>
-                        <h4>X2= <span id="x2"></span></h4>
+                    <div class="card-panel p-tb-10" id="card-result">
+                        <center><big><b>Resultado</b></big></center>
+                        <h5>Z= <span id="z"></span></h5>
+                        <h5>X1= <span id="x1"></span></h5>
+                        <h5>X2= <span id="x2"></span></h5>
                     </div>
 
+                </div>
+                <div class="col s12 m5">
+                    <div class="card-panel" id="card-tables">
+                        
+
+                    </div>
                 </div>
             </div>
         </div>
