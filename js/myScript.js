@@ -44,6 +44,8 @@ function calcular(){
     $( "#card-result" ).fadeIn();
     $( "#card-tables" ).fadeIn();
 
+    $(this).addClass("disabled");
+
     var select = $('select#select').val();
     definirTabla();
     mostarTabla();
