@@ -4,20 +4,20 @@ $(document).ready(function(){
 
     $( "button#btn-run" ).on( "click",  calcular);
 
-    // $("#zx1").val("-8");
-    // $("#zx2").val("-10");
-    // $("#f1x1").val("2");
-    // $("#f1x2").val("3");
-    // $("#s1").val("1");
-    // $("#f1r").val("600");
-    // $("#f2x1").val("2");
-    // $("#f2x2").val("1");
-    // $("#s2").val("1");
-    // $("#f2r").val("500");
-    // $("#f3x1").val("0");
-    // $("#f3x2").val("4");
-    // $("#s3").val("1");
-    // $("#f3r").val("600");
+    $("#zx1").val("-8");
+    $("#zx2").val("-10");
+    $("#f1x1").val("2");
+    $("#f1x2").val("3");
+    $("#s1").val("1");
+    $("#f1r").val("600");
+    $("#f2x1").val("2");
+    $("#f2x2").val("1");
+    $("#s2").val("1");
+    $("#f2r").val("500");
+    $("#f3x1").val("0");
+    $("#f3x2").val("4");
+    $("#s3").val("1");
+    $("#f3r").val("600");
 
 
     // $("#zx1").val("-5");
@@ -282,7 +282,7 @@ function mostarTabla(){
 }
 
 function crearTablas(){
-    var table = $(`<table class="centered"><thead><tr>
+    var table = $(`<table class="responsive-table centered"><thead><tr>
                         <th>Z</th> <th>X1</th> <th>X2</th> <th>S1</th> <th>S2</th> <th>S3</th> <th>R</th>
                         </tr></thead><tbody></tbody></table>`);
     var fila  = $(`<tr><td>Alvin</td>
